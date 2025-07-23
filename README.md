@@ -122,8 +122,8 @@ To use this MCP server, you'll need a YouTube Data API key. Here's how to get on
 
 #### Step 3: Create API Credentials
 
-1. Go to the [Credentials page](https://console.cloud.google.com/apis/credentials)
-2. Click "Create Credentials" and select "API Key"
+1. Go to the [Credentials page](https://console.cloud.google.com/apis/credentials) - (왼쪽 메뉴) 사용자 인증 정보 클릭
+2. Click "Create Credentials" and select "API Key" - (상단 메뉴) 사용자 인증 정보 만들기 클릭 & API 키 선택
 3. Your new API key will be displayed - copy it immediately
 4. Click "Restrict Key" to secure it (recommended)
 
