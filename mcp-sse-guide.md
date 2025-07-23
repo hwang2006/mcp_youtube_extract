@@ -11,11 +11,6 @@ This guide demonstrates how to run and test a Model Context Protocol (MCP) serve
 
 ## Server Setup
 
-```bash
-git clone https://github.com/sinjab/mcp_youtube_extract.git 
-cd mcp_youtube_extract
-```
-
 ### 1. Server Implementation
 
 Your MCP server (the mcp_youtube_extract/src/mcp_youtube_extract/server.py file) should be configured to use SSE transport:
