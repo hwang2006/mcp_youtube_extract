@@ -59,7 +59,7 @@ For development or if you prefer uv:
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Clone and install the project
-git clone https://github.com/sinjab/mcp_youtube_extract.git
+git clone https://github.com/hwang2006/mcp_youtube_extract.git
 cd mcp_youtube_extract
 
 # Install dependencies (including dev dependencies)
@@ -74,7 +74,7 @@ cp .env.example .env
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/sinjab/mcp_youtube_extract.git
+   git clone https://github.com/hwang2006/mcp_youtube_extract.git
    cd mcp_youtube_extract
    ```
 
