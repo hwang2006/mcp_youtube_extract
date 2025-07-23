@@ -173,7 +173,8 @@ mcp_youtube_extract
 #### Using Development Setup
 
 ```bash
-# Using uv (assuming you are in the mcp_youtube_extract root directory)
+# Using uv 
+cd mcp_youtube_extract
 uv run mcp_youtube_extract
 
 # Or directly
@@ -188,6 +189,7 @@ For quick testing or one-off extractions, you can call the YouTube extraction fu
 
 ```bash
 # Extract Rick Astley video (Never Gonna Give You Up)
+cd mcp_youtube_extract
 uv run python -c "from dotenv import load_dotenv; load_dotenv(); from src.mcp_youtube_extract.server import get_yt_video_info; print(get_yt_video_info('dQw4w9WgXcQ'))"
 ```
 
