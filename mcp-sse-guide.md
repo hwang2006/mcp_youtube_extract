@@ -33,7 +33,7 @@ def main():
 
 ### 2. Environment Configuration
 
-Create a `.env` file with necessary API keys:
+Make sure there is a `.env` file with necessary API keys:
 
 ```bash
 YOUTUBE_API_KEY=your_youtube_api_key_here
