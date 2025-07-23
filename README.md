@@ -173,7 +173,7 @@ mcp_youtube_extract
 #### Using Development Setup
 
 ```bash
-# Using uv
+# Using uv (assuming you are in the mcp_youtube_extract root directory)
 uv run mcp_youtube_extract
 
 # Or directly
