@@ -54,21 +54,36 @@ mcp_youtube_extract
 
 For development or if you prefer uv:
 
+#### Installing uv
+
+**On Linux/macOS:**
 ```bash
-# Install uv if you haven't already
 curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Clone and install the project
-git clone https://github.com/hwang2006/mcp_youtube_extract.git
-cd mcp_youtube_extract
-
-# Install dependencies (including dev dependencies)
-uv sync --dev
-
-# Set up your API key for development
-cp .env.example .env
-# Edit .env and add your YouTube API key
 ```
+
+**On Windows:**
+
+uv is written in Rust, so you'll need the Rust toolchain first.
+
+1. **Install Rust (Recommended Method)**
+   1. Visit this link or copy and paste it into your browser:
+      👉 https://win.rustup.rs/
+   2. The **installer (rustup-init.exe)** will download automatically
+   3. Run the installer and proceed with default options:
+      - This installs `cargo`, `rustc`, `rustup`, `rustdoc`, etc.
+      - After installation, `C:\Users\[username]\.cargo\bin` is automatically added to PATH
+
+2. **Install uv from GitHub (Direct Method)**
+   
+   After Rust is installed, install uv with this command:
+   ```powershell
+   cargo install --git https://github.com/astral-sh/uv
+   ```
+   This command fetches and builds the latest version of uv directly from the GitHub repository.
+
+#### Setting up the project
+
+Once uv is installed:
 
 ### From source
 
@@ -122,8 +137,8 @@ To use this MCP server, you'll need a YouTube Data API key. Here's how to get on
 
 #### Step 3: Create API Credentials
 
-1. Go to the [Credentials page](https://console.cloud.google.com/apis/credentials) - (왼쪽 메뉴) 사용자 인증 정보 클릭
-2. Click "Create Credentials" and select "API Key" - (상단 메뉴) 사용자 인증 정보 만들기 클릭 & API 키 선택
+1. Go to the [Credentials page](https://console.cloud.google.com/apis/credentials)
+2. Click "Create Credentials" and select "API Key"
 3. Your new API key will be displayed - copy it immediately
 4. Click "Restrict Key" to secure it (recommended)
 
@@ -173,7 +188,7 @@ mcp_youtube_extract
 #### Using Development Setup
 
 ```bash
-# Using uv 
+# Using uv
 cd mcp_youtube_extract
 uv run mcp_youtube_extract
 
@@ -452,6 +467,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Support
 
 If you encounter any issues or have questions, please:
-1. Check the [existing issues](https://github.com/sinjab/mcp_youtube_extract/issues)
+1. Check the [existing issues](https://github.com/hwang2006/mcp_youtube_extract/issues)
 2. Create a new issue with detailed information about your problem
 3. Include logs and error messages when applicable
