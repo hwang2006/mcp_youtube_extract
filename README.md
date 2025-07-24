@@ -78,7 +78,7 @@ uv is written in Rust, so you'll need the Rust toolchain first.
 
    After Rust is installed, install uv with this command:
    ```powershell
-   cargo install --git https://github.com/astral-sh/uv
+   cargo install --git https://github.com/astral-sh/uv uv
    ```
    This command fetches and builds the latest version of uv directly from the GitHub repository.
 
@@ -508,6 +508,18 @@ uv run hatch build
 - **mcp-sse-guide.md** - Comprehensive guide for SSE transport protocol testing
 - **API Documentation** - Inline documentation in source code
 - **Test Documentation** - Testing strategy and coverage reports
+
+## Acknowledgments
+
+This project is based on the original [mcp_youtube_extract](https://github.com/sinjab/mcp_youtube_extract) repository by [sinjab](https://github.com/sinjab). This updated mcp_youtube_extract repo includes additional enhancements:
+
+- **Windows installation guide** for uv and Rust toolchain
+- **SSE transport testing guide** (`mcp-sse-guide.md`)
+- **Enhanced CLI interface** with additional options
+- **Comprehensive transport protocol documentation**
+- **Extended testing and debugging capabilities**
+
+Special thanks to the original author for creating the foundational MCP YouTube extraction framework.
 
 ## License
 
