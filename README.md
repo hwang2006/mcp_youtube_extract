@@ -13,6 +13,7 @@ A Model Context Protocol (MCP) server for YouTube operations, demonstrating core
   - **Tools**: Extract information from YouTube videos including metadata and transcripts
   - **Comprehensive Logging**: Detailed logging throughout the application
   - **Error Handling**: Robust error handling with fallback logic for transcripts
+  - **Multiple Transports**: Supports both stdio and SSE (Server-Sent Events) protocols
 - **YouTube Integration**: Built-in YouTube API capabilities:
   - Extract video information (title, description, channel, publish date)
   - Get video transcripts with intelligent fallback logic
@@ -74,16 +75,29 @@ uv is written in Rust, so you'll need the Rust toolchain first.
       - After installation, `C:\Users\[username]\.cargo\bin` is automatically added to PATH
 
 2. **Install uv from GitHub (Direct Method)**
-   
+
    After Rust is installed, install uv with this command:
    ```powershell
-   cargo install --git https://github.com/astral-sh/uv uv
+   cargo install --git https://github.com/astral-sh/uv
    ```
    This command fetches and builds the latest version of uv directly from the GitHub repository.
 
 #### Setting up the project
 
 Once uv is installed:
+
+```bash
+# Clone and install the project
+git clone https://github.com/hwang2006/mcp_youtube_extract.git
+cd mcp_youtube_extract
+
+# Install dependencies (including dev dependencies)
+uv sync --dev
+
+# Set up your API key for development
+cp .env.example .env
+# Edit .env and add your YouTube API key
+```
 
 ### From source
 
@@ -300,6 +314,42 @@ uv run python yt_extract_cli.py --help
 - **Error handling**: Clear error messages for troubleshooting
 - **Help system**: Built-in help with `--help` flag
 
+### Transport Protocols
+
+This MCP server supports two transport protocols:
+
+#### **stdio Transport (Default - Production Use)**
+- **Best for**: Claude Desktop integration and production deployments
+- **Configuration**: Default transport when running `mcp_youtube_extract`
+- **Usage**: Communicates via standard input/output streams
+- **Integration**: Works seamlessly with MCP clients like Claude Desktop
+
+#### **SSE Transport (Testing & Debugging)**
+- **Best for**: Development, testing, and debugging MCP servers
+- **Configuration**: HTTP-based Server-Sent Events protocol
+- **Benefits**: 
+  - Easy testing with curl commands
+  - Real-time monitoring of server responses
+  - Web browser compatibility for quick checks
+  - Detailed debugging capabilities
+
+**For comprehensive SSE testing and debugging**, see the detailed guide in [`mcp-sse-guide.md`](mcp-sse-guide.md). This guide covers:
+
+- Setting up SSE transport for testing
+- Step-by-step MCP protocol handshake sequence
+- Testing with curl commands and browser
+- Troubleshooting common issues
+- Transport protocol comparison and use cases
+
+**Quick SSE Testing Setup:**
+```bash
+# Start server with SSE transport (modify server.py)
+mcp.run(transport="sse")  # Instead of mcp.run()
+
+# Test with curl
+curl -N -H "Accept: text/event-stream" http://127.0.0.1:8000/sse
+```
+
 ### Running Tests
 
 ```bash
@@ -415,10 +465,13 @@ mcp_youtube_extract/
 │   └── test_youtube_unit.py   # Unit tests for core functionality
 ├── logs/                      # Application logs
 ├── yt_extract_cli.py          # Command-line interface script
-├── .env                       # Environment variables (create from .env.example)
+├── mcp-sse-guide.md           # SSE transport testing guide
+├── .env.example               # Environment variables template
 ├── .gitignore                 # Git ignore rules (includes coverage files)
-├── pyproject.toml
+├── .python-version            # Python version specification
+├── pyproject.toml             # Project configuration
 ├── LICENSE                    # MIT License
+├── uv.lock                    # UV package lock file
 └── README.md
 ```
 
@@ -429,6 +482,7 @@ The project uses a comprehensive testing approach:
 1. **Unit Tests** (`test_youtube_unit.py`): Test core YouTube functionality with mocked APIs
 2. **Integration Tests** (`test_context_fix.py`, `test_with_api_key.py`): Test full server functionality
 3. **Manual Validation** (`test_inspector.py`): Interactive server inspection tool
+4. **Transport Testing**: SSE transport protocol testing guide (`mcp-sse-guide.md`)
 
 ### Error Handling
 
@@ -447,6 +501,13 @@ uv add --dev hatch
 # Build the package
 uv run hatch build
 ```
+
+## Documentation
+
+- **README.md** - Main project documentation (this file)
+- **mcp-sse-guide.md** - Comprehensive guide for SSE transport protocol testing
+- **API Documentation** - Inline documentation in source code
+- **Test Documentation** - Testing strategy and coverage reports
 
 ## License
 
@@ -470,3 +531,4 @@ If you encounter any issues or have questions, please:
 1. Check the [existing issues](https://github.com/hwang2006/mcp_youtube_extract/issues)
 2. Create a new issue with detailed information about your problem
 3. Include logs and error messages when applicable
+4. For SSE transport issues, refer to the [`mcp-sse-guide.md`](mcp-sse-guide.md) troubleshooting section
