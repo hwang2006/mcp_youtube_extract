@@ -77,7 +77,7 @@ uv is written in Rust, so you'll need the Rust toolchain first.
    
    After Rust is installed, install uv with this command:
    ```powershell
-   cargo install --git https://github.com/astral-sh/uv
+   cargo install --git https://github.com/astral-sh/uv uv
    ```
    This command fetches and builds the latest version of uv directly from the GitHub repository.
 
