@@ -63,6 +63,8 @@ def get_video_transcript(video_id: str, languages=['en']) -> str | None:
     try:
         logger.info(f"Fetching transcript for video: {video_id}")
         transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
+        #api = YouTubeTranscriptApi()
+        #transcript_list = api.list(video_id)
         transcript = None
 
         # 1. Try to find an auto-generated transcript
